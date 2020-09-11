@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container pt-5">
+        <div class="row">
+
+        <h1>Prediction Results<span style="margin-left: 400px"><a href="/delete" class="badge badge-danger">Delete all results?</a></span></h1>
+
+            <table class="table">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Glucose</th>
+                <th scope="col">BloodPressure</th>
+                <th scope="col">SkinThickness</th>
+                <th scope="col">Insulin</th>
+                <th scope="col">BMI</th>
+                <th scope="col">Age</th>
+                <th scope="col">is_diabetic?</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for data in preds %}
+                    <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ data.Name }}</td>
+                    <td>{{ data.Glucose }}</td>
+                    <td>{{ data.BloodPressure }}</td>
+                    <td>{{ data.SkinThickness }}</td>
+                    <td>{{ data.Insulin }}</td>
+                    <td>{{ data.BMI }}</td>
+                    <td>{{ data.Age }}</td>
+                    <td>{{ data.is_diabetic }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

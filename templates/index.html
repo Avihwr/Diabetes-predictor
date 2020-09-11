@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="float-right ml-5" style="margin-top: 100px; margin-right: 50px;">
+    {% if final == 0 %}
+       <h1> <span class="badge badge-pill badge-info">No Diabetes</span></h1>
+    {% elif final == 1 %}
+       <h3> <span class="badge badge-pill badge-danger">You May Have Diabetes!!</span></h3>
+        <h4>Please Consult A  Doctor Immediately!!</h4>
+    {% endif %}
+
+
+    </div>
+    <div class="float-left ml-5" style="margin-top: 100px;">
+   <h1>Diabetes Prediction</h1>
+    <img class="diabetes" style="width: 400px; height: 400px; background-size:auto 100%;" src='/static/img/diabetes.png'  alt="sad">
+    </div>
+    <div class="container pt-3">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4" style="margin-right: 450px;">
+
+            <form action="." method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="Name">Your Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="" required>
+                </div>
+                <div class="form-group" style="justify-content: flex-start">
+                    <label for="Glucose">Glucose</label>
+                    <input type="number" step="0.1" class="form-control" id="Glucose" name="Glucose" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="BloodPressure">BloodPressure</label>
+                    <input type="number" step="0.1" class="form-control" id="BloodPressure" name="BloodPressure" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="SkinThickness">SkinThickness</label>
+                    <input type="number" step="0.1" class="form-control" id="SkinThickness" name="SkinThickness" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="insulin">Insulin</label>
+                    <input type="number" step="0.1" class="form-control" id="insulin" name="Insulin" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="BMI">BMI</label>
+                    <input type="number" step="0.1" class="form-control" id="BMI" name="BMI" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="Age">Age</label>
+                    <input type="number" step="0.1" class="form-control" id="Age" name="Age" placeholder="" required>
+                </div>
+                <button type="submit" value="Submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
