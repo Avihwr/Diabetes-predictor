@@ -18,7 +18,7 @@ def predict(request):
         model = pd.read_pickle('diabetespredict.pickle')
         result = model.predict(
             [[Glucose, BloodPressure, SkinThickness, Insulin,
-              BMI, Age]])  # input must be 2D array
+              BMI, Age]]) 
         print(result)
         is_diabetic = result[0]
         ins = DiabeticPrediction(Glucose=Glucose, BloodPressure=BloodPressure, SkinThickness=SkinThickness,
